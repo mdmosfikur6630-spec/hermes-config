@@ -106,7 +106,7 @@ set_cfg display.credits_notices false
 set_cfg display.show_reasoning false
 set_cfg display.ephemeral_system_ttl 30
 set_cfg display.runtime_footer.enabled false
-set_cfg display.interim_assistant_messages false
+set_cfg display.interim_assistant_messages true
 set_cfg display.inline_diffs false
 set_cfg display.turn_summary false
 set_cfg display.tool_progress off
@@ -118,7 +118,7 @@ set_cfg display.platforms.telegram.streaming true
 set_cfg display.platforms.telegram.tool_progress all
 set_cfg display.platforms.telegram.tool_progress_grouping replace
 set_cfg display.platforms.telegram.cleanup_progress true
-set_cfg display.platforms.telegram.interim_assistant_messages false
+set_cfg display.platforms.telegram.interim_assistant_messages true
 set_cfg display.platforms.telegram.busy_ack_detail false
 
 # Talk to the bot while it works.

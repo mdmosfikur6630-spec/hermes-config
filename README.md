@@ -42,7 +42,7 @@ Requirements: Hermes Agent installed (`hermes` on `PATH`), `python3`, `curl`. Li
 | `display.show_reasoning` | `false` | no reasoning blocks in the reply |
 | `display.ephemeral_system_ttl` | `30` | auto-deletes "✨ New session" style notices |
 | `display.runtime_footer.enabled` | `false` | no `model · 68% · ~/dir` footer |
-| `display.interim_assistant_messages` | `false` | no mid-turn commentary messages |
+| `display.interim_assistant_messages` | `true` | mid-turn replies are delivered — this is what answers you while a task runs |
 | `display.inline_diffs` | `false` | no diff blocks in one-shot/CLI output |
 | `display.turn_summary` | `false` | no post-turn stats line in the CLI |
 | `display.tool_progress` | `off` | CLI stays silent; Telegram overrides below |
@@ -57,7 +57,7 @@ Requirements: Hermes Agent installed (`hermes` on `PATH`), `python3`, `curl`. Li
 | `display.platforms.telegram.tool_progress_grouping` | `replace` |
 | `display.platforms.telegram.cleanup_progress` | `true` |
 | `display.platforms.telegram.streaming` | `true` |
-| `display.platforms.telegram.interim_assistant_messages` | `false` |
+| `display.platforms.telegram.interim_assistant_messages` | `true` |
 | `display.platforms.telegram.busy_ack_detail` | `false` |
 
 `replace` is a new grouping mode this kit patches in: the single editable progress message shows **only the step currently running**. When the answer is delivered, the bubble is deleted (`cleanup_progress`).
