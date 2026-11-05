@@ -139,7 +139,7 @@ ok "configuration applied"
 if [ "$APPLY_PATCHES" = 1 ]; then
   if [ -d "$HERMES_REPO/.git" ]; then
     info "applying source patches"
-    for p in 01-live-progress-replace 02-inline-diff-gate 03-steer-ack; do
+    for p in 01-live-progress-replace 02-inline-diff-gate 03-steer-ack 04-answer-while-busy; do
       fetch "$RAW/patches/$p.py" "$TMP/$p.py"
       if [ "$DRY_RUN" = 1 ]; then
         printf '  [dry-run] python3 %s\n' "$TMP/$p.py"

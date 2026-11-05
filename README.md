@@ -69,7 +69,14 @@ Requirements: Hermes Agent installed (`hermes` on `PATH`), `python3`, `curl`. Li
 | `display.busy_input_mode` | `steer` |
 | `display.busy_steer_ack_enabled` | `true` |
 
-Plain text sent during a running turn is injected into that turn (`agent.steer()`) and picked up after the current tool call. The kit also patches in an immediate **"⏩ Steered into current run"** acknowledgement, because upstream steers silently.
+Plain text sent during a running turn is injected into that turn (`agent.steer()`) and picked up after the current tool call. The kit also patches in an immediate **"⏩ Steered into current run"** acknowledgement and — with patch 4 — an instant answer from a transcript snapshot, so a busy bot never leaves you on read.
+
+For truly long jobs, put them in the background and keep the chat free:
+
+```
+/bg <task>        # detached run, result posted to the same chat when done
+/btw <question>   # answer a question mid-turn without touching the running task
+```
 
 Recommended extra (not set by the script, it is an env var):
 
@@ -109,6 +116,7 @@ Upstream Hermes has no release that includes these behaviours, so the kit applie
 | `01-live-progress-replace` | `gateway/display_config.py`, `gateway/run_turn_progress.py`, `hermes_cli/config_defaults.py` | adds `tool_progress_grouping: replace` |
 | `02-inline-diff-gate` | `agent/display.py`, `hermes_cli/gateway_agent.py` | `display.inline_diffs: false` is actually honoured; no diff blocks in `-Q` output |
 | `03-steer-ack` | `gateway/run_inbound.py` | steered messages get an immediate acknowledgement |
+| `04-answer-while-busy` | `gateway/run_inbound.py` | interjections are answered immediately from a transcript snapshot (`/btw` path) while still being steered into the running task |
 
 Each script checks for its marker first, so re-running the installer is safe. If upstream changes the surrounding code, the patch aborts with a `version mismatch` message instead of guessing.
 
