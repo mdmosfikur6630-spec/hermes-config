@@ -94,9 +94,9 @@ Upstream queues Telegram follow-ups that arrive within 3 seconds of task start i
 | `agent.api_max_retries` | `1` | fail over instead of retrying 3× |
 | `auxiliary.title_generation.model_upgrade_enabled` | `false` | no extra model call per session |
 | `auxiliary.title_generation.prefer_fast_model` | `true` | title call uses the fast tier |
-| `auxiliary.background_review.enabled` | `false` | no post-turn self-review replay |
 | `provider_routing.sort` | `latency` | OpenRouter picks the lowest time-to-first-token provider |
-| `skills.creation_nudge_interval` | `0` | no skill-creation nudges mid-task |
+
+**Auto-learning is intentionally untouched**: memory nudges, skill creation, the post-turn review fork and the skill curator all stay at upstream defaults (`background_review.enabled: true`, `skills.creation_nudge_interval: 15`, `memory.nudge_interval: 10`, `curator.enabled: true`).
 
 Trade-off: with `execution_guidance: false` the agent no longer forces a read-back after writes. Set it back with `hermes config set agent.execution_guidance auto` for risky work.
 

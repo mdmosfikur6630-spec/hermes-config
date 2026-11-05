@@ -130,9 +130,7 @@ set_cfg agent.api_max_retries 1
 set_cfg agent.execution_guidance false
 set_cfg auxiliary.title_generation.model_upgrade_enabled false
 set_cfg auxiliary.title_generation.prefer_fast_model true
-set_cfg auxiliary.background_review.enabled false
 set_cfg provider_routing.sort latency
-set_cfg skills.creation_nudge_interval 0
 ok "configuration applied"
 
 # ── 3. patches ─────────────────────────────────────────────────────────────
