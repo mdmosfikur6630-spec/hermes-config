@@ -166,18 +166,18 @@ fi
 # ── 5. next steps ──────────────────────────────────────────────────────────
 echo
 ok "done"
-cat <<'EOF'
+cat <<EOF
 
 Add your credentials (this kit never ships secrets):
 
-  echo 'DEEPSEEK_API_KEY=...'              >> ~/.hermes/.env
-  echo 'TELEGRAM_BOT_TOKEN=...'            >> ~/.hermes/.env
-  echo 'TELEGRAM_ALLOWED_USERS=123456789'  >> ~/.hermes/.env
-  echo 'HERMES_TELEGRAM_FOLLOWUP_GRACE_SECONDS=0' >> ~/.hermes/.env
+  echo 'DEEPSEEK_API_KEY=...'              >> $HERMES_HOME/.env
+  echo 'TELEGRAM_BOT_TOKEN=...'            >> $HERMES_HOME/.env
+  echo 'TELEGRAM_ALLOWED_USERS=123456789'  >> $HERMES_HOME/.env
+  echo 'HERMES_TELEGRAM_FOLLOWUP_GRACE_SECONDS=0' >> $HERMES_HOME/.env
 
 Then:  hermes gateway run
 
 Backups written next to the originals:
-  ~/.hermes/config.yaml.bak.<timestamp>
-  ~/.hermes/SOUL.md.bak.<timestamp>
+  $HERMES_HOME/config.yaml.bak.<timestamp>
+  $HERMES_HOME/SOUL.md.bak.<timestamp>
 EOF
