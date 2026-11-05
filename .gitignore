@@ -1,0 +1,15 @@
+# local
+*.log
+.DS_Store
+
+# never publish credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# runtime
+backups/
+cache/
+sessions/
